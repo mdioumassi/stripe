@@ -26,9 +26,10 @@ card.on("change", function (event) {
     document.querySelector("#card-error").textContent = event.error ? event.error.message : "";
 });
 const form = document.getElementById("payment-form");
-const fullName = document.getElementById("fullname");
+
 form.addEventListener("submit", function(event) {
     event.preventDefault();
+    const fullName = document.getElementById("fullname").value;
     // Complete payment when the submit button is clicked
     stripe
         .confirmCardPayment(clientSecret, {
