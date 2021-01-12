@@ -12,11 +12,10 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 class StripeController extends AbstractController
 {
     /**
-     * @Route("/", name="stripe")
+     * @Route("/payment/{amount}", name="payment-stripe")
      */
-    public function showCardForm(StripeService $stripeService): Response
+    public function showCardForm(StripeService $stripeService, $amount): Response
     {
-        $amount = 12000;
         $intent = $stripeService->getPaymentIntent($amount);
         return $this->render('stripe/paiement.html.twig', [
             'clientSecret' => $intent->client_secret,

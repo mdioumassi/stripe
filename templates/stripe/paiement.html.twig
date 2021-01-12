@@ -5,6 +5,7 @@
 
 {% block body %}
 	<form id="payment-form">
+		<input class="w3-input w3-border" type="text"  id="fullname" placeholder="Nom complet">
 		<div id="card-element"><!--Stripe.js injects the Card Element--></div>
 		<button id="submit" class="btn btn-success">
 			<div class="spinner hidden" id="spinner"></div>
