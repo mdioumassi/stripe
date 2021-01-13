@@ -4,8 +4,14 @@
 {% endblock %}
 
 {% block body %}
+
 	<form id="payment-form">
-		<input class="w3-input w3-border" type="text"  id="fullname" placeholder="Nom complet">
+		<p>Vous allez payez la somme de : <span class="w3-text-red">{{ amount }} €</span>	</p>
+		<p class="w3-border">Plateforme de paiement 100% sécurisée</p>
+		<div class="w3-panel w3-blue">
+			<strong>Entrez vos informations bancaires.</strong>
+		</div>
+		<input class="w3-input w3-border" type="text"  id="fullname" placeholder="Nom complet" required>
 		<div id="card-element"><!--Stripe.js injects the Card Element--></div>
 		<button id="submit" class="btn btn-success">
 			<div class="spinner hidden" id="spinner"></div>

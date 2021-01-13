@@ -42,4 +42,12 @@ class StripeService
             'currency' => 'eur'
         ]);
     }
+
+    public function cancelPayment($amount)
+    {
+        \Stripe\Stripe::setApiKey($this->secretKey);
+
+        $intent = \Stripe\PaymentIntent::retrieve('pi_570etAgFdjhYz9568rFG');
+        return $intent->cancel();
+    }
 }
