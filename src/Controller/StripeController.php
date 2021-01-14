@@ -3,8 +3,6 @@
 namespace App\Controller;
 
 use App\Stripe\StripeService;
-use Stripe\Stripe;
-use Stripe\PaymentIntent;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpFoundation\Session\SessionInterface;
 use Symfony\Component\Routing\Annotation\Route;
@@ -13,7 +11,13 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 class StripeController extends AbstractController
 {
     /**
+     * On affiche le formulaire de paiement sripe
+     *
      * @Route("/payment", name="payment-stripe")
+     * @param StripeService $stripeService
+     * @param SessionInterface $session
+     * @return Response
+     * @throws \Stripe\Exception\ApiErrorException
      */
     public function showCardForm(StripeService $stripeService, SessionInterface $session): Response
     {
@@ -28,20 +32,12 @@ class StripeController extends AbstractController
     }
 
     /**
+     * Message de confirmation paiement
+     *
      * @Route("/confirm", name="confirm-payment")
      */
     public function confirm()
     {
         return $this->render('stripe/confirm.html.twig');
     }
-
-    /**
-     * @Route("/cancel", name="confirm-payment")
-     */
-   /* public function cancelPayment (StripeService $stripeService)
-    {
-        if ($stripeService->cancelPayment()) {
-            $this->redirectToRoute("command");
-        }
-    }*/
 }

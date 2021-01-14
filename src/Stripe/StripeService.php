@@ -23,7 +23,7 @@ class StripeService
     /**
      * @return string
      */
-    public function getPublicKey() :string
+    public function getPublicKey(): string
     {
         return $this->publicKey;
     }
@@ -43,11 +43,13 @@ class StripeService
         ]);
     }
 
-    public function cancelPayment($amount)
+    public function refundPayment()
     {
         \Stripe\Stripe::setApiKey($this->secretKey);
 
-        $intent = \Stripe\PaymentIntent::retrieve('pi_570etAgFdjhYz9568rFG');
-        return $intent->cancel();
+        return \Stripe\Refund::create([
+            'amount' => 100,
+            'payment_intent' => 'pi_1I8kefI9xYefOdXp1r2B7R3M',
+        ]);
     }
 }
