@@ -1,7 +1,8 @@
 
 #Module paiement Stripe
 
-Pour le bon fonctionnement du module de paiement. Veuillez récupérer les clés sur votre compte stripe.com
+Pour le bon fonctionnement du module de paiement. Veuillez récupérer les clés sur votre compte stripe.com.
+
 Nous avons deux clés:
 - publicKey:
 - secretKey:
