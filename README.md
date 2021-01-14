@@ -6,6 +6,7 @@ Nous avons deux clés:
 - secretKey:
 
 Une fois les clés récupéres sur Stripe, on les renseignent sur le fichier .env:
+
 STRIPE_PUBLIC_KEY=publicKey
 
 STRIPE_SECRET_KEY=secretKey
